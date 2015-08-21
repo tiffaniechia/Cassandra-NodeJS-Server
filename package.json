@@ -1,0 +1,11 @@
+{
+  "name": "cassandrap-node-spike",
+  "description": "Cassandra node.js spike",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.9",
+    "body-parser": "1.9",
+    "async": "0.9.0",
+    "cassandra-driver": "1.0.0"  }
+}
