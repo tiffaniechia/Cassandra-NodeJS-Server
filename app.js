@@ -29,20 +29,32 @@ app.get('/lyrics', function (req, res) {
     request('http://api.lyricsnmusic.com/songs?api_key=9a4d95c72ea279e77ef7f1773010a9&lyrics=blank%20space', function (err, res, body) {
         var lyricSearchResults = JSON.parse(body);
         if (body) {
+            //for (i = 0; i < lyricSearchResults.length; i++) {
+            //    if (lyricSearchResults[i].viewable) {
+            //        request(lyricSearchResults[i].url, function (e, r, d) {
+            //            var lyrics = d.match(/<pre[^>]*>([\s\S]*?)<\/pre>/)[0];
+            //            if (lyrics.replace(/\n+/g, " ").replace(/[^a-zA-Z\s]/gi,'').indexOf('blank space') != -1) {
+            //                count++;
+            //                console.log(count);
+            //            }
+            //
+            //        });
+            //    }
+            //
+            //}
+
+            //search needs to be case insensitive
+            // results need to be matched to case insensitive
+
             for (i = 0; i < lyricSearchResults.length; i++) {
-                if (lyricSearchResults[i].viewable) {
-
-                    request(lyricSearchResults[i].url, function (e, r, d) {
-                        var lyrics = d.match(/<pre[^>]*>([\s\S]*?)<\/pre>/)[0];
-                        if (lyrics.replace(/\n+/g, " ").indexOf('blank space') != -1) {
-                            count++;
-                        }
-                            console.log(count);
-
-                    });
-                }
+               var context = lyricSearchResults[i].context.replace(/em>+/g,"").replace(/[^a-zA-Z\s]/gi,"");
+               if(context.indexOf('blank space')!== -1) {
+                   count++;
+                   console.log(count);
+               }
 
             }
+
         }
     });
 
