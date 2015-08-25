@@ -77,6 +77,11 @@ app.get('/lyricsMatch', function (req, res) {
 });
 
 
+function searchLyric(input){
+    var input = input();
+
+}
+
 
 
 

@@ -4,6 +4,8 @@ npm install
 to run program:
 node app.js
 
+to run tests:
+mocha test
 
 lyrics API:
 http://api.lyricsnmusic.com/api
