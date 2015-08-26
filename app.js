@@ -1,5 +1,4 @@
 var express = require('express');
-var request = require('request');
 var app = express();
 
 var urlService = require('./UrlService.js');
