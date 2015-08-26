@@ -29,3 +29,19 @@ sample response contract:
         "instrumental": false
     }
 ]
+
+getLyricsMatch:
+//just checks for matches from context parameter in response
+// response returns a 'context' in which the API server picks out the phrase which it thinks matches the search best
+// response wraps the 'matches' in '<em>' tags
+// parsing this response it will return if the context matches the search.
+//also currently just returns a count
+
+getFullLyricsOfAllMatches:
+// api returns non-consecutive word matches - returns results that matches any permutations of the search
+    // example: 'I heaven sheep' would yield results even though there are no lyrics with these 3 consecutive words together
+    // it would return results that matches 'I', 'heaven', 'sheep' or any permutations it can find
+// to get full lyrics, first it checks for these matches
+// find if lyric body is viewable
+// gets the DOM from the url if viewable
+// returns if the full lyric matches the search (currently just adds to count)

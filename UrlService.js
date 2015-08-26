@@ -8,12 +8,15 @@ var parseSearchTermForQuery = function (searchTerm) {
 
 var getLyricSearchResults = function (searchTerm) {
     var searchQueryString = parseSearchTermForQuery(searchTerm);
-    request('http://api.lyricsnmusic.com/songs?api_key='+ API_KEY +'&lyrics=' + searchQueryString, function (error, response, body) {
+    request('http://api.lyricsnmusic.com/songs?api_key=' + API_KEY + '&lyrics=' + searchQueryString, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             return body;
         }
     })
 };
+
+
+
 
 var UrlService = {
     getLyricSearchResults: getLyricSearchResults
