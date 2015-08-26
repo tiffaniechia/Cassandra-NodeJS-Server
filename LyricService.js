@@ -13,7 +13,7 @@ var getFullLyricsFromDOM = function (body) {
 };
 
 var isMatch = function(searchable, searchTerm) {
-    return searchable.indexOf(searchTerm) !== 1;
+    return searchable.indexOf(searchTerm) !== -1;
 };
 
 var isValidLyric = function (searchTerm) {
