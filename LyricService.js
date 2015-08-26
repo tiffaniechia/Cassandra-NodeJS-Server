@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var urlService = require('./UrlService.js');
 
 var parseContextFieldFromResponse = function (context) {
@@ -12,19 +13,17 @@ var getFullLyricsFromDOM = function (body) {
     return body.match(/<pre[^>]*>([\s\S]*?)<\/pre>/)[0];
 };
 
-var isMatch = function(searchable, searchTerm) {
+var isMatch = function (searchable, searchTerm) {
     return searchable.indexOf(searchTerm) !== -1;
 };
 
 var isValidLyric = function (searchTerm) {
     var results = urlService.getLyricSearchResults(searchTerm);
     var lyricSearchResults = JSON.parse(results);
-    if (lyricSearchResults) {
-        for (var responseIndex = 0; responseIndex < lyricSearchResults.length; responseIndex++) {
-            var context = parseContextFieldFromResponse(lyricSearchResults[responseIndex].context);
-            return isMatch(context, searchTerm);
-        }
-    }
+    var isFound = _.find(lyricSearchResults, function (result) {
+        return isMatch(parseContextFieldFromResponse(result.context), searchTerm);
+    });
+    return isFound !== undefined ? true : false;
 };
 
 var getFullLyricsFromAllSearchResults = function (searchTerm) {

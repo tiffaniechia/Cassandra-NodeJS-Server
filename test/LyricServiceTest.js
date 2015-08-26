@@ -39,7 +39,7 @@ describe('QueryService', function () {
             lyricService.isValidLyric('blank space').should.equal(true);
         });
 
-        it.only('should return false if search term is an invalid lyric', function () {
+        it('should return false if search term is an invalid lyric', function () {
             lyricService.isValidLyric('blank interrupting words space').should.equal(false);
         });
     });
