@@ -18,9 +18,9 @@ var isValidLyric = function (searchTerm) {
     return isFound !== undefined;
 };
 
-var LyricService = {
+var LyricController = {
     isValidLyric: isValidLyric
 };
 
 
-module.exports = LyricService;
+module.exports = LyricController;

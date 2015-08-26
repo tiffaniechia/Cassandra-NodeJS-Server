@@ -5,7 +5,7 @@ chai.should();
 chai.use(sinonChai);
 
 var Message = require('../Message.js');
-var lyricService = require('../LyricService.js');
+var lyricController = require('../LyricController.js');
 
 describe('Message', function() {
     describe('#init', function () {
@@ -18,10 +18,10 @@ describe('Message', function() {
 
     describe('#isValidLyric', function () {
         it('should call isValidLyric with searchTerm', function () {
-            sinon.spy(lyricService, 'isValidLyric');
+            sinon.spy(lyricController, 'isValidLyric');
             var message = new Message('blank space');
             message.isValid();
-            lyricService.isValidLyric.should.have.been.calledWith('blank space');
+            lyricController.isValidLyric.should.have.been.calledWith('blank space');
         });
     });
 });

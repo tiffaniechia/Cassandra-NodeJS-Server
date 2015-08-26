@@ -4,7 +4,7 @@ var sinonChai = require("sinon-chai");
 chai.should();
 chai.use(sinonChai);
 
-var lyricService = require('../LyricService.js');
+var lyricController = require('../LyricController.js');
 var urlService = require('../UrlService.js');
 
 describe('QueryService', function () {
@@ -31,16 +31,16 @@ describe('QueryService', function () {
 
     describe('#isLyricValid', function () {
         it('should call getLyricSearchResults with search term', function(){
-            lyricService.isValidLyric('blank space');
+            lyricController.isValidLyric('blank space');
             urlService.getLyricSearchResults.should.have.been.calledWith('blank space');
         });
 
         it('should return true if search term is a valid lyric', function () {
-            lyricService.isValidLyric('blank space').should.equal(true);
+            lyricController.isValidLyric('blank space').should.equal(true);
         });
 
         it('should return false if search term is an invalid lyric', function () {
-            lyricService.isValidLyric('blank interrupting words space').should.equal(false);
+            lyricController.isValidLyric('blank interrupting words space').should.equal(false);
         });
     });
 });

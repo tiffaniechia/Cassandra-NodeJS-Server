@@ -3,7 +3,7 @@ var request = require('request');
 var app = express();
 
 var urlService = require('./UrlService.js');
-var lyricService = require('./LyricService.js');
+var lyricController = require('./LyricController.js');
 var message = require('../Message.js');
 
 var server = app.listen(3000, function () {
