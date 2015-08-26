@@ -23,7 +23,7 @@ var isValidLyric = function (searchTerm) {
     var isFound = _.find(lyricSearchResults, function (result) {
         return isMatch(parseContextFieldFromResponse(result.context), searchTerm);
     });
-    return isFound !== undefined ? true : false;
+    return isFound !== undefined;
 };
 
 var getFullLyricsFromAllSearchResults = function (searchTerm) {
