@@ -10,27 +10,6 @@ var server = app.listen(3000, function () {
     console.log('Listening on port %d', server.address().port);
 });
 
-app.get('/fullLyrics', function (req, res) {
-    //for reference
-    //var count = 0;
-    //request('http://api.lyricsnmusic.com/songs?api_key=9a4d95c72ea279e77ef7f1773010a9&lyrics=blank%20space', function (err, res, body) {
-    //    var lyricSearchResults = JSON.parse(body);
-    //    if (body) {
-    //        for (responseDataIndex = 0; responseDataIndex < lyricSearchResults.length; responseDataIndex++) {
-    //            if (lyricSearchResults[responseDataIndex].viewable) {
-    //                request(lyricSearchResults[responseDataIndex].url, function (e, r, d) {
-    //                    var lyrics = d.match(/<pre[^>]*>([\s\S]*?)<\/pre>/)[0];
-    //                    if (lyrics.replace(/\n+/g, " ").replace(/[^a-zA-Z\s]/gi, '').indexOf('blank space') != -1) {
-    //                        count++;
-    //                        console.log(count);
-    //                    }
-    //                });
-    //            }
-    //        }
-    //    }
-    //});
-});
-
 app.get('/lyricsMatch', function (req, res) {
     //lyricsService.isValidLyric(searchTerm)
 });
