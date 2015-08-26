@@ -31,7 +31,7 @@ var getFullLyricsFromAllSearchResults = function (searchTerm) {
     var allResults = urlService.getLyricSearchResults(searchTerm);
     var lyricSearchResults = JSON.parse(allResults);
     if (lyricSearchResults) {
-        for (responseDataIndex = 0; responseDataIndex < lyricSearchResults.length; responseDataIndex++) {
+        for (var responseDataIndex = 0; responseDataIndex < lyricSearchResults.length; responseDataIndex++) {
             if (lyricSearchResults[responseDataIndex].viewable) {
                 request(lyricSearchResults[responseDataIndex].url, function (error, response, body) {
                     var lyrics = getFullLyricsFromDOM(body);
