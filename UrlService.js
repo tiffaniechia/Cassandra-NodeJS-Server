@@ -15,9 +15,6 @@ var getLyricSearchResults = function (searchTerm) {
     })
 };
 
-
-
-
 var UrlService = {
     getLyricSearchResults: getLyricSearchResults
 };
