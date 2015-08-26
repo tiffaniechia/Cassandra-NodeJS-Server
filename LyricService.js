@@ -17,9 +17,9 @@ var isValidLyric = function (searchTerm) {
     }
 };
 
-var QueryService = {
+var LyricService = {
     isValidLyric: isValidLyric
 };
 
 
-module.exports = QueryService;
+module.exports = LyricService;

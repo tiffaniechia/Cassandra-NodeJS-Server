@@ -1,11 +1,11 @@
-var queryService = require('./QueryService.js');
+var lyricService = require('./LyricService.js');
 
 var Query = function(searchTerm) {
     this.searchTerm = searchTerm;
 };
 
 Query.prototype.search = function(){
-    queryService.isValidLyric(this.searchTerm);
+    lyricService.isValidLyric(this.searchTerm);
 };
 
 
