@@ -19,11 +19,10 @@ describe('Query', function() {
 
     describe('#isValidLyric', function () {
         it('should call Service with search', function () {
-            sinon.spy(queryService, 'getQueryValidity');
+            sinon.spy(queryService, 'getLyricValidity');
             var query = new Query('blank space');
             query.search();
-            queryService.getQueryValidity.should.have.been.calledWith('blank space');
-
+            queryService.getLyric.should.have.been.calledWith('blank space');
         });
 
 
