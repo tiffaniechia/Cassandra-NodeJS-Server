@@ -1,12 +1,12 @@
 var lyricService = require('./LyricService.js');
 
-var Query = function(searchTerm) {
+var Message = function(searchTerm) {
     this.searchTerm = searchTerm;
 };
 
-Query.prototype.search = function(){
+Message.prototype.isValid = function(){
     lyricService.isValidLyric(this.searchTerm);
 };
 
 
-module.exports = Query;
+module.exports = Message;

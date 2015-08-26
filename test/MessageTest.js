@@ -4,23 +4,23 @@ var sinonChai = require("sinon-chai");
 chai.should();
 chai.use(sinonChai);
 
-var Query = require('../Query.js');
+var Message = require('../Message.js');
 var lyricService = require('../LyricService.js');
 
-describe('Query', function() {
+describe('Message', function() {
     describe('#init', function () {
-        it('initialize with query', function () {
-            var query = new Query('blank space');
+        it('initialize with message', function () {
+            var query = new Message('blank space');
             query.searchTerm.should.equal('blank space');
 
         });
     });
 
     describe('#isValidLyric', function () {
-        it('should call Service with search', function () {
+        it('should call isValidLyric with searchTerm', function () {
             sinon.spy(lyricService, 'isValidLyric');
-            var query = new Query('blank space');
-            query.search();
+            var message = new Message('blank space');
+            message.isValid();
             lyricService.isValidLyric.should.have.been.calledWith('blank space');
         });
     });
