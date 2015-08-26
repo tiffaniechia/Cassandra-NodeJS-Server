@@ -5,7 +5,7 @@ var Query = function(searchTerm) {
 };
 
 Query.prototype.search = function(){
-    queryService.getLyricValidity(this.searchTerm);
+    queryService.isValidLyric(this.searchTerm);
 };
 
 

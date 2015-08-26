@@ -6,7 +6,6 @@ chai.use(sinonChai);
 
 var Query = require('../Query.js');
 var queryService = require('../QueryService.js');
-//var app = require();
 
 describe('Query', function() {
     describe('#init', function () {
@@ -19,12 +18,10 @@ describe('Query', function() {
 
     describe('#isValidLyric', function () {
         it('should call Service with search', function () {
-            sinon.spy(queryService, 'getLyricValidity');
+            sinon.spy(queryService, 'isValidLyric');
             var query = new Query('blank space');
             query.search();
-            queryService.getLyric.should.have.been.calledWith('blank space');
+            queryService.isValidLyric.should.have.been.calledWith('blank space');
         });
-
-
     });
 });
