@@ -1,20 +1,32 @@
-before you run, check for dependencies:
+#  Cassandra + NodeJS + Lyric API Server Spike
+
+
+Install dependencies:
+```
 npm install
-
-to run program:
+```
+Run project:
+```
 node app.js
+```
 
-to run tests:
+Run tests:
+```
 mocha test
+```
 
-lyrics API:
+Lyrics API:
+```
 http://api.lyricsnmusic.com/api
 
-sample lyric query search:
-http://api.lyricsnmusic.com/songs?api_key=[YOUR_API_KEY]&lyrics=Imagine%20all%20the%20people
+```
+Search for lyrics by words in lyrics:
+```
+http://api.lyricsnmusic.com/songs?api_key=[YOUR_API_KEY]&lyrics=Tickingy%20Clocks
 
-
-sample response contract:
+```
+Response Contract:
+```json
 [
     {
         "artist": {
@@ -24,24 +36,12 @@ sample response contract:
         "title": "Clocks",
         "url": "http://www.lyricsnmusic.com/coldplay/clocks-lyrics/5725306",
         "snippet": "The lights go out and I can't be saved\r\nTides that I tried to swim against\r\n...",
-        "context": "\r\n\r\nConfusion that never stops\r\nThe closing walls and the ticking <em>clocks</em>",
+        "context": "\r\n\r\nConfusion that never stops\r\nThe closing walls and the <em>ticking</em> <em>clocks</em>",
         "viewable": true,
         "instrumental": false
     }
 ]
+```
+Note About Response:
 
-getLyricsMatch:
-//just checks for matches from context parameter in response
-// response returns a 'context' in which the API server picks out the phrase which it thinks matches the search best
-// response wraps the 'matches' in '<em>' tags
-// parsing this response it will return if the context matches the search.
-//also currently just returns a count
-
-getFullLyricsOfAllMatches:
-// api returns non-consecutive word matches - returns results that matches any permutations of the search
-    // example: 'I heaven sheep' would yield results even though there are no lyrics with these 3 consecutive words together
-    // it would return results that matches 'I', 'heaven', 'sheep' or any permutations it can find
-// to get full lyrics, first it checks for these matches
-// find if lyric body is viewable
-// gets the DOM from the url if viewable
-// returns if the full lyric matches the search (currently just adds to count)
+The API returns results of broad matches for search query. This means that searching for a invalid lyric such as 'heaven blank sheep' would yield results matching permutations of the search query.
