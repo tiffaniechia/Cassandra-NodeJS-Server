@@ -7,7 +7,7 @@ chai.use(sinonChai);
 var lyricController = require('../LyricController.js');
 var urlService = require('../UrlService.js');
 
-describe('QueryService', function () {
+describe('Lyric Controller', function () {
     before(function() {
         var stubbedResponseResults =  [
             {

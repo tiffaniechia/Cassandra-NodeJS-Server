@@ -44,4 +44,4 @@ Response Contract:
 ```
 Note About Response:
 
-The API returns results of broad matches for search query. This means that searching for a invalid lyric such as 'heaven blank sheep' would yield results matching permutations of the search query.
+The API returns broad matches for search query. This means that searching for an invalid lyric such as 'heaven blank sheep' would yield results matching permutations of the search query.
