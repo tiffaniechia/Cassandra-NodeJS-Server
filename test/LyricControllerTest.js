@@ -42,5 +42,10 @@ describe('QueryService', function () {
         it('should return false if search term is an invalid lyric', function () {
             lyricController.isValidLyric('blank interrupting words space').should.equal(false);
         });
+
+        it('should parse out symbols from search terms and response results', function () {
+            lyricController.isValidLyric('blank space!').should.equal(true);
+        });
+
     });
 });
