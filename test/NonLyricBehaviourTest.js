@@ -3,7 +3,7 @@ chai.should();
 
 var NonLyricBehaviour = require('../src/MessageBehaviours/NonLyricBehaviour.js');
 
-describe('LyricBehaviour', function () {
+describe('NonLyricBehaviour', function () {
     describe('#displayContent', function () {
         var nonLyricBehaviour = new NonLyricBehaviour("hello, is it me you're looking for");
         it('should display empty string', function () {

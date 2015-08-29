@@ -12,7 +12,7 @@ node app.js
 
 Run tests:
 ```
-mocha test
+gulp mocha
 ```
 
 Lyrics API:
