@@ -6,6 +6,7 @@ chai.use(sinonChai);
 
 var User = require('../src/User.js');
 var Message = require('../src/Message.js');
+var ChatRoom = require('../src/ChatRoom.js');
 var lyricController = require('../src/LyricController.js');
 
 describe('User', function () {
@@ -37,9 +38,18 @@ describe('User', function () {
         });
     });
 
-    describe("#chatRooms", function(){
+    describe("#getChatRooms", function(){
         it("should fetch chat rooms ", function(){
-            user.chatRooms().should.be.instanceof(Array);
+            user.getChatRooms().should.be.instanceof(Array);
         });
     });
+
+    describe("#createChatRoom", function(){
+        it("should create a new chat room with chosen user", function(){
+            user.createChatRoom(new User({ name: "other user", location: "current location"}));
+            var chatRooms = user.getChatRooms();
+            chatRooms[0].should.be.instanceof(ChatRoom);
+        });
+    });
+
 });
