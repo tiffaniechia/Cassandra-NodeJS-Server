@@ -4,8 +4,8 @@ var sinonChai = require("sinon-chai");
 chai.should();
 chai.use(sinonChai);
 
-var lyricController = require('../LyricController.js');
-var urlService = require('../UrlService.js');
+var lyricController = require('../src/LyricController.js');
+var urlService = require('../src/UrlService.js');
 
 describe('Lyric Controller', function () {
     before(function() {

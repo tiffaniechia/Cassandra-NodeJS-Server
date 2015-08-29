@@ -1,7 +1,7 @@
 var chai = require('chai');
 chai.should();
 
-var NonLyricBehaviour = require('../NonLyricBehaviour.js');
+var NonLyricBehaviour = require('../src/MessageBehaviours/NonLyricBehaviour.js');
 
 describe('LyricBehaviour', function () {
     describe('#displayContent', function () {

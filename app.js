@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 
-var urlService = require('./UrlService.js');
-var lyricController = require('./LyricController.js');
+var urlService = require('./src/UrlService.js');
+var lyricController = require('./src/LyricController.js');
 var message = require('../Message.js');
 
 var server = app.listen(3000, function () {

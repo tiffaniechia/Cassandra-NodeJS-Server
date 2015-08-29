@@ -4,12 +4,12 @@ var sinonChai = require("sinon-chai");
 chai.should();
 chai.use(sinonChai);
 
-var Message = require('../Message.js');
-var lyricController = require('../LyricController.js');
-var NonLyricBehaviour = require('../NonLyricBehaviour.js');
-var LyricBehaviour = require('../LyricBehaviour.js');
-var InvalidMessageStatus = require('../InvalidMessageStatus.js');
-var ValidMessageStatus = require('../ValidMessageStatus.js');
+var Message = require('../src/Message.js');
+var lyricController = require('../src/LyricController.js');
+var NonLyricBehaviour = require('../src/MessageBehaviours/NonLyricBehaviour.js');
+var LyricBehaviour = require('../src/MessageBehaviours/LyricBehaviour.js');
+var InvalidMessageStatus = require('../src/Statuses/InvalidMessageStatus.js');
+var ValidMessageStatus = require('../src/Statuses/ValidMessageStatus.js');
 
 describe('Message', function () {
     var lyricMessage, nonLyricMessage;
