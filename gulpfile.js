@@ -7,3 +7,7 @@ gulp.task('mocha', function() {
         .pipe(mocha({ reporter: 'list' }))
         .on('error', gutil.log);
 });
+
+gulp.task('watch-mocha', function() {
+    gulp.watch(['src/**', 'test/**'], ['mocha']);
+});

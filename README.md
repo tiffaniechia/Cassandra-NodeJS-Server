@@ -12,7 +12,11 @@ node app.js
 
 Run tests:
 ```
+//run once
 gulp mocha
+
+//trigger run on file change
+gulp watch-mocha
 ```
 
 Lyrics API:
