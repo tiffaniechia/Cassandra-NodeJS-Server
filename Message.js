@@ -1,6 +1,5 @@
 var lyricController = require('./LyricController.js');
 
-
 var Message = function(parameters) {
     this.content = parameters.content;
     this.behaviour = new parameters.behaviour;

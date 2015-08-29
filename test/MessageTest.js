@@ -13,6 +13,7 @@ var ValidMessageStatus = require('../ValidMessageStatus.js');
 
 describe('Message', function () {
     var lyricMessage, nonLyricMessage;
+
     describe('#init', function () {
         before(function () {
             lyricMessage = new Message({
