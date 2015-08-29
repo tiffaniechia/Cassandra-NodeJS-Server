@@ -1,7 +1,7 @@
 var chai = require('chai');
 chai.should();
 
-var ValidMessageStatus = require('../src/Statuses/ValidMessageStatus.js');
+var ValidMessageStatus = require('../../src/Statuses/ValidMessageStatus.js');
 
 describe('Message', function () {
     describe('#popUpMessage', function () {
