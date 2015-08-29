@@ -5,7 +5,6 @@ chai.should();
 chai.use(sinonChai);
 
 var Message = require('../src/Message.js');
-var lyricController = require('../src/LyricController.js');
 var NonLyricBehaviour = require('../src/MessageBehaviours/NonLyricBehaviour.js');
 var LyricBehaviour = require('../src/MessageBehaviours/LyricBehaviour.js');
 var InvalidMessageStatus = require('../src/Statuses/InvalidMessageStatus.js');
@@ -43,11 +42,4 @@ describe('Message', function () {
         });
     });
 
-    describe('#isValidLyric', function () {
-        it('should call isValidLyric with searchTerm', function () {
-            sinon.spy(lyricController, 'isValidLyric');
-            lyricMessage.isValid();
-            lyricController.isValidLyric.should.have.been.calledWith("I'm so hot, make a dragon wanna retire man");
-        });
-    });
 });

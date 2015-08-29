@@ -6,9 +6,8 @@ var Message = function (parameters) {
     this.status = new parameters.status;
 };
 
-Message.prototype.isValid = function () {
-    lyricController.isValidLyric(this.content);
+Message.prototype.getContent = function (){
+    return this.content;
 };
-
 
 module.exports = Message;
