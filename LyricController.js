@@ -5,7 +5,7 @@ var parseContextFieldFromResponse = function (context) {
     return context.replace(/em>+/g, "").replace(/[^a-zA-Z\s]/gi, "").toLowerCase();
 };
 
-var parseSearchTerm = function(searchTerm){
+var parseSearchTerm = function (searchTerm) {
     return searchTerm.replace(/[^a-zA-Z\s]/gi, "").toLowerCase();
 };
 
