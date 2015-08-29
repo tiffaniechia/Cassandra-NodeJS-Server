@@ -16,8 +16,13 @@ User.prototype.getStatusMessage = function(){
     return this.status;
 };
 
+//TODO: rethink setter
 User.prototype.postStatusMessage = function(content){
     this.status = lyricController.isValidLyric(content) ? new Message({content: content, behaviour: LyricBehaviour, status: ValidMessageStatus}) : new Message({content: content, behaviour: NonLyricBehaviour, status: InvalidMessageStatus});
+};
+
+User.prototype.chatRooms = function(){
+  return [];
 };
 
 module.exports = User;

@@ -36,4 +36,10 @@ describe('User', function () {
             user.getStatusMessage().should.be.instanceof(Message);
         });
     });
+
+    describe("#chatRooms", function(){
+        it("should fetch chat rooms ", function(){
+            user.chatRooms().should.be.instanceof(Array);
+        });
+    });
 });
