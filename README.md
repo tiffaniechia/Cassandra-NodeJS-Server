@@ -1,5 +1,6 @@
 #  Cassandra + NodeJS + Lyric API Server Spike
 
+[![Code Climate](https://codeclimate.com/github/tiffaniechia/Cassandra-NodeJS-Server/badges/gpa.svg)](https://codeclimate.com/github/tiffaniechia/Cassandra-NodeJS-Server)
 
 Install dependencies:
 ```
@@ -11,7 +12,7 @@ node app.js
 ```
 
 Run tests:
-```
+```javascript
 //run once
 gulp mocha
 
@@ -22,13 +23,13 @@ gulp watch-mocha
 Lyrics API:
 ```
 http://api.lyricsnmusic.com/api
-
 ```
+
 Search for lyrics by words in lyrics:
 ```
 http://api.lyricsnmusic.com/songs?api_key=[YOUR_API_KEY]&lyrics=Tickingy%20Clocks
-
 ```
+
 Response Contract:
 ```json
 [
