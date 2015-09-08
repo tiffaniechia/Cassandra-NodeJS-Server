@@ -4,6 +4,9 @@
 
 Install dependencies:
 ```
+brew install cassandra
+brew install python
+pip install cql
 npm install
 ```
 Run project:
