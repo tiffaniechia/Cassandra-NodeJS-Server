@@ -2,16 +2,21 @@
 
 [![Code Climate](https://codeclimate.com/github/tiffaniechia/Cassandra-NodeJS-Server/badges/gpa.svg)](https://codeclimate.com/github/tiffaniechia/Cassandra-NodeJS-Server)
 
-Install dependencies:
+Make sure you have Cassandra & CQL
 ```
 brew install cassandra
 brew install python
 pip install cql
+```
+
+Install dependencies:
+```
 npm install
 ```
+
 Run project:
 ```
-node app.js
+gulp run
 ```
 
 Run tests:
