@@ -18,7 +18,7 @@ app.get('/metadata', function (req, res) {
 });
 
 app.post('/keyspace', function (req, res) {
-    client.execute("CREATE KEYSPACE IF NOT EXISTS cassandra_spike WITH replication " +
+    client.execute("CREATE KEYSPACE IF NOT EXISTS cassandra_base WITH replication " +
         "= {'class' : 'SimpleStrategy', 'replication_factor' : 3};",
         afterExecution('Error: ', 'Keyspace created.', res));
 });
@@ -42,14 +42,14 @@ var server = app.listen(3000, function () {
 app.post('/tables', function (req, res) {
     async.parallel([
             function (next) {
-                client.execute('CREATE TABLE IF NOT EXISTS cassandra_spike.users (' +
+                client.execute('CREATE TABLE IF NOT EXISTS cassandra_base.users (' +
                     'username text PRIMARY KEY,' +
                     'password text,' +
                     ');',
                     next);
             },
             function (next) {
-                client.execute('CREATE TABLE IF NOT EXISTS cassandra_spike.shouts (' +
+                client.execute('CREATE TABLE IF NOT EXISTS cassandra_base.shouts (' +
                     'shout_id uuid PRIMARY KEY,' +
                     'username text,' +
                     'body text,' +
@@ -58,7 +58,7 @@ app.post('/tables', function (req, res) {
             },
 
             function (next) {
-                client.execute('CREATE TABLE IF NOT EXISTS cassandra_spike.usershouts (' +
+                client.execute('CREATE TABLE IF NOT EXISTS cassandra_base.usershouts (' +
                     'username text,' +
                     'body text,' +
                     'shout_id uuid,' +
@@ -71,15 +71,9 @@ app.post('/tables', function (req, res) {
 });
 
 
-app.post('/populate', function (req, res) {
-
-    client.execute("INSERT INTO cassandra_spike.users(username, password) VALUES ('user1', 'password1');", [], function (err, res) {
-    });
-});
-
 app.get('/users', function (req, res) {
 
-    client.execute('SELECT * FROM cassandra_spike.users', [], function (err, result) {
+    client.execute('SELECT * FROM cassandra_base.users', [], function (err, result) {
         if (err) {
             res.status(404).send({msg: err});
         } else {
