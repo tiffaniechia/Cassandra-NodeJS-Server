@@ -15,7 +15,11 @@ npm install
 ```
 
 Run project:
+(This runs the Cassandra-Node driver, creates Cassandra Keyspace, mock tables and mock data, and reloads server on file change)
 ```
+//This requires Node v0.12
+// brew update
+// brew upgrade node
 gulp run
 ```
 

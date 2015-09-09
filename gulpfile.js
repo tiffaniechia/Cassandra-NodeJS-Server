@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var gutil = require('gulp-util');
 var shell = require('gulp-shell');
+var nodemon = require('gulp-nodemon');
 
 gulp.task('mocha', function() {
     return gulp.src(['test/**/*.js'], { read: false })
@@ -13,6 +14,17 @@ gulp.task('watch-mocha', function() {
     gulp.watch(['src/**', 'test/**'], ['mocha']);
 });
 
-gulp.task('run', shell.task([
-    './setup.sh'
+gulp.task('cassandra', shell.task([
+    './setup_cassandra.sh'
 ]));
+
+gulp.task('run', ['cassandra'],function () {
+    nodemon({ script: 'app.js'
+        , ext: 'js'
+        , ignore: ['test/**/*.js']
+        //, tasks: ['lint']
+        })
+        .on('restart', function () {
+            console.log('restarted!')
+        })
+});
