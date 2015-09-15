@@ -29,3 +29,12 @@ app.get('/users', function (req, res) {
         }
     });
 });
+
+
+var lyricController = require('./src/LyricController.js');
+var urlService = require('./src/UrlService.js');
+app.get('/lyrics', function(req, res){
+    console.log(lyricController.isValidLyric1('hello'));
+    res.send({result: lyricController.isValidLyric1('hello')});
+
+});
