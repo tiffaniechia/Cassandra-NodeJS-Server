@@ -24,8 +24,18 @@ var isValidLyric = function (searchTerm) {
     return isFound !== undefined;
 };
 
+var isValidLyric1 = function(result, searchTerm){
+    var lyricSearchResults = JSON.parse(result);
+    var isFound = _.find(lyricSearchResults, function (r) {
+        return isMatch(parseContextFieldFromResponse(r.context), searchTerm);
+    });
+    return isFound !== undefined;
+};
+
 var LyricController = {
-    isValidLyric: isValidLyric
+    isValidLyric1: isValidLyric1,
+    isValidLyric: isValidLyric,
+    parseSearchTerm: parseSearchTerm
 };
 
 
