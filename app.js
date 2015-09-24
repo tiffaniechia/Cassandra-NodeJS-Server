@@ -35,7 +35,9 @@ app.get('/users', function (req, res) {
 
 var urlService = require('./src/UrlService.js');
 
-app.get('/lyrics', function (req, res) {
+app.get('/api/search_match/:lyrics', function (req, res) {
+
+    var searchParams = req.params.lyrics;
 
     var parseContextFieldFromResponse = function (context) {
         return context.replace(/em>+/g, "").replace(/[^a-zA-Z\s]/gi, "").toLowerCase();
@@ -46,12 +48,14 @@ app.get('/lyrics', function (req, res) {
     var isMatch = function (searchable, searchTerm) {
         return searchable.indexOf(searchTerm) !== -1;
     };
-    var searchTerm = parseSearchTerm('hello');
+    var searchTerm = parseSearchTerm(searchParams);
     urlService.getLyricSearchResults(searchTerm, function (err, result) {
         var lyricSearchResults = JSON.parse(result);
         var isFound = _.find(lyricSearchResults, function (r) {
             return isMatch(parseContextFieldFromResponse(r.context), searchTerm);
         });
+
+
         res.send({result: isFound !== undefined})
     });
 
