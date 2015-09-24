@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cassandra = require('cassandra-driver');
+var _ = require('lodash');
+var q = require('q');
 var app = express();
 app.use(bodyParser.json());
 
@@ -31,10 +33,26 @@ app.get('/users', function (req, res) {
 });
 
 
-var lyricController = require('./src/LyricController.js');
 var urlService = require('./src/UrlService.js');
-app.get('/lyrics', function(req, res){
-    console.log(lyricController.isValidLyric1('hello'));
-    res.send({result: lyricController.isValidLyric1('hello')});
+
+app.get('/lyrics', function (req, res) {
+
+    var parseContextFieldFromResponse = function (context) {
+        return context.replace(/em>+/g, "").replace(/[^a-zA-Z\s]/gi, "").toLowerCase();
+    };
+    var parseSearchTerm = function (searchTerm) {
+        return searchTerm.replace(/[^a-zA-Z\s]/gi, "").toLowerCase();
+    };
+    var isMatch = function (searchable, searchTerm) {
+        return searchable.indexOf(searchTerm) !== -1;
+    };
+    var searchTerm = parseSearchTerm('hello');
+    urlService.getLyricSearchResults(searchTerm, function (err, result) {
+        var lyricSearchResults = JSON.parse(result);
+        var isFound = _.find(lyricSearchResults, function (r) {
+            return isMatch(parseContextFieldFromResponse(r.context), searchTerm);
+        });
+        res.send({result: isFound !== undefined})
+    });
 
 });

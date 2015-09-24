@@ -6,17 +6,15 @@ var parseSearchTermForQuery = function (searchTerm) {
     return searchTerm.toLowerCase().split(" ").join("%20");
 };
 
-var getLyricSearchResults = function (searchTerm) {
+var getLyricSearchResults = function (searchTerm, callback) {
     var deferred = q.defer();
     var searchQueryString = parseSearchTermForQuery(searchTerm);
     request('http://api.lyricsnmusic.com/songs?api_key=' + API_KEY + '&lyrics=' + searchQueryString, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            //return body;
-
             deferred.resolve(body);
-            //return body;
         }
     });
+    deferred.promise.nodeify(callback);
     return deferred.promise;
 };
 
